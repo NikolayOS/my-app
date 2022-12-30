@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { ControlValueAccessor, FormControl } from "@angular/forms";
+import { ChangeDetectorRef, Component } from "@angular/core";
+import { ControlValueAccessor } from "@angular/forms";
 
 
 @Component({
@@ -26,7 +26,6 @@ export class InputComponent implements ControlValueAccessor {
         const targetInputElement = event.target as HTMLInputElement;
         this.value = targetInputElement.value;
         this.onChange(this.value);
-        console.log(this.value);
         if (this.value.length < 8 && this.value.length !== 0){
             this.block1 = "class1"
             this.block2 = "class1";
