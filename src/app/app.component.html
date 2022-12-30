@@ -1,20 +1,24 @@
 
-  <input type="text" name="myInput" [formControl] = "passControl">
+  <app-input></app-input>
+  <app-input></app-input>
 
-<div>
-  <span 
-  id ="span1"
-  [ngClass]="{
-    'class0': !passControl.value.length
-  }"></span>
-  <span  
-  id ="span2"
-  [ngClass]="{
-    'class0': !passControl.value.length
-  }"></span>
-  <span 
-  id ="span3"
-  [ngClass]="{
-    'class0': !passControl.value.length
-  }"></span>
-</div>
+
+<!-- <forn [formGroup] = "myForm">
+  <app-input
+  formControlName = "first"
+  (input)="onInputValueChange($event)" 
+  ></app-input>
+  <div class="wrapp">
+    <app-indicator
+    [ngClass] = "block1"
+    ></app-indicator>
+    <app-indicator
+    [ngClass] = "block2"
+    ></app-indicator>
+    <app-indicator
+    [ngClass] = "block3"
+    ></app-indicator>
+  </div>
+</forn> -->
+
+

@@ -1,54 +1,57 @@
-import { Component, OnInit} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'my-app';
-  passControl!: FormControl;
-  ngOnInit(){
-    this.passControl = new FormControl("");
-    this.passControl.valueChanges.subscribe((value) => {
-      const div = document.querySelector("div");
-      const elem1 = document.querySelector("#span1");
-      const elem2 = document.querySelector("#span2");
-      const elem3 = document.querySelector("#span3");
-      const letters = /[a-zA-Z]/;
-      const numbers = /[0-9]/;
-      const sumbols = /[! " # $ % & ' ( ) * + , \ -. / : ; < = > ? @ [ \] ^ _ ` { | }]/;
+export class AppComponent {
+  // constructor (private fb :FormBuilder){}
+  // myForm = this.fb.group({
+  // first: [""]
+  // })
+  value = "";
+  block1 = "";
+  block2 = "";
+  block3 = "";
+  letters = /[a-zA-Z]/;
+  numbers = /[0-9]/;
+  sumbols = /[! " # $ % & ' ( ) * + , \ -. / : ; < = > ? @ [ \] ^ _ ` { | }]/;
 
-    if (value.length < 8 && value.length !== 0){
-      elem1!.className = "class1"
-      elem2!.className = "class1"
-      elem3!.className = "class1"
+
+  public onInputValueChange(event: Event): void {
+    const targetDivElement = event.target as HTMLInputElement;
+    this.value = targetDivElement.value;
+    if (this.value.length < 8 && this.value.length !== 0){
+      this.block1 = "class1"
+      this.block2 = "class1";
+      this.block3 = "class1";
     }
-    if(value.length == 0){
-      elem1!.className = "class0"
-      elem2!.className = "class0"
-      elem3!.className = "class0"
+    if (this.value.length == 0){
+      this.block1 = "class0"
+      this.block2 = "class0";
+      this.block3 = "class0";
     }
-    if (value.length >= 8 && (value.match(letters) || value.match(numbers) || value.match(sumbols))){
-      elem1!.className = "class1"
-      elem2!.className = "class0"
-      elem3!.className = "class0"
+    if (this.value.length >= 8 && (this.value.match(this.letters) || this.value.match(this.numbers) || this.value.match(this.sumbols))){
+      this.block1 = "class1";
+      this.block2 = "class0";
+      this.block3 = "class0";
     }
-    if (value.length >= 8 && (
-      (value.match(numbers) && value.match(letters)) ||
-      (value.match(numbers) && value.match(sumbols)) ||
-      (value.match(sumbols) && value.match(letters))
+    if (this.value.length >= 8 && (
+      (this.value.match(this.numbers) && this.value.match(this.letters)) ||
+      (this.value.match(this.numbers) && this.value.match(this.sumbols)) ||
+      (this.value.match(this.sumbols) && this.value.match(this.letters))
       )){
-        elem1!.className = "class2"
-        elem2!.className = "class2"
-        elem3!.className = "class0"
+      this.block1 = "class2";
+      this.block2 = "class2";
+      this.block3 = "class0";
     }
-    if (value.length >= 8 && (value.match(numbers) && value.match(letters) && value.match(sumbols))){
-      elem1!.className = "class3"
-      elem2!.className = "class3"
-      elem3!.className = "class3"
+    if (this.value.length >= 8 && (this.value.match(this.numbers) && this.value.match(this.letters) && this.value.match(this.sumbols))){
+      this.block1 = "class3";
+      this.block2 = "class3";
+      this.block3 = "class3";
     }
-  }
-    );}
+}
+  
 }

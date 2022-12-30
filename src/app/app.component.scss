@@ -1,23 +1,37 @@
-div{
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
-    width: 170px;
-}
-span{
+
+app-indicator{
+    display: block;
     width: 50px;
     height: 20px;
-    border: solid 1px black;
+    border: grey solid 2px;
+    }
+.wrapp{
+display: flex;
+justify-content: space-between;
+margin: 5px 0px 0px 0px;
+width: 174px;
 }
 .class0{
+    display: block;
+    width: 50px;
+    height: 20px;
     border: grey solid 2px;
 }
 .class1{
+    display: block;
+    width: 50px;
+    height: 20px;
     border: red solid 2px;
 }
 .class2{
+    display: block;
+    width: 50px;
+    height: 20px;
     border: yellow solid 2px;
 }
 .class3{
+    display: block;
+    width: 50px;
+    height: 20px;
     border: green solid 2px;
 }
